@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($winget = Get-Command winget -ErrorAction SilentlyContinue; if \\($winget\\) { Write-Output \"WINGET: $\\($winget.Source\\)\" } else { Write-Output \"NO WINGET\" })",
+      "PowerShell(winget install --id ngrok.ngrok --accept-source-agreements --accept-package-agreements --silent)",
+      "PowerShell($env:Path = [System.Environment]::GetEnvironmentVariable\\('Path','Machine'\\) + ';' + [System.Environment]::GetEnvironmentVariable\\('Path','User'\\); ngrok version)",
+      "PowerShell($env:Path = [System.Environment]::GetEnvironmentVariable\\('Path','Machine'\\) + ';' + [System.Environment]::GetEnvironmentVariable\\('Path','User'\\); ngrok config add-authtoken 2zxwmhl1ET17dZrmMDesgtVWkhU_5ZGxLKnNrSJQrUjqqLqsj)",
+      "PowerShell($env:Path = [System.Environment]::GetEnvironmentVariable\\('Path','Machine'\\) + ';' + [System.Environment]::GetEnvironmentVariable\\('Path','User'\\); ngrok http 5500 --log=stdout --log-format=logfmt)",
+      "PowerShell($bytes = [System.IO.File]::ReadAllBytes\\('c:\\\\Users\\\\PC\\\\Desktop\\\\test-pwa\\\\manifest.webmanifest'\\); Write-Output \\(\"First 4 bytes \\(hex\\): \" + \\($bytes[0..3] | ForEach-Object { '{0:X2}' -f $_ }\\) -join ' '\\); Write-Output \"File length: $\\($bytes.Length\\)\"; if \\($bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF\\) { Write-Output \"HAS UTF-8 BOM\" } else { Write-Output \"NO BOM\" })"
+    ]
+  }
+}
