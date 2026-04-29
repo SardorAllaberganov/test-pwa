@@ -76,7 +76,9 @@
   const hideButton = () => { installBtn.hidden = true; };
 
   const openModal = () => {
-    const data = INSTRUCTIONS[detectPlatform()] || INSTRUCTIONS.desktop;
+    const platform = detectPlatform();
+    const data = INSTRUCTIONS[platform] || INSTRUCTIONS.desktop;
+    console.info('[PWA] modal opened for platform:', platform);
     modalTitle.textContent = data.title;
     modalIntro.innerHTML = data.intro;
     modalSteps.innerHTML = data.steps.map((s) => `<li>${s}</li>`).join('');
@@ -124,14 +126,23 @@
   });
 
   installBtn.addEventListener('click', async () => {
+    console.info('[PWA] install click — deferredPrompt available:', !!deferredPrompt);
+
     if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const choice = await deferredPrompt.userChoice;
-      console.info('[PWA] install choice:', choice.outcome);
-      deferredPrompt = null;
-      if (choice.outcome !== 'accepted') showButton();
-      return;
+      try {
+        deferredPrompt.prompt();
+        const choice = await deferredPrompt.userChoice;
+        console.info('[PWA] install choice:', choice.outcome);
+        deferredPrompt = null;
+        if (choice.outcome !== 'accepted') showButton();
+        return;
+      } catch (err) {
+        console.error('[PWA] native prompt failed, falling back to modal:', err);
+        deferredPrompt = null;
+      }
     }
+
+    console.info('[PWA] opening manual install modal');
     openModal();
   });
 
