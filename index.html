@@ -19,12 +19,49 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="hero">
-      <div class="logo" aria-hidden="true">P</div>
-      <h1>PWA Install Test</h1>
-      <p class="lead">A minimal page to verify the add-to-home-screen flow.</p>
-      <p id="status" class="status">Checking install support&hellip;</p>
+    <main id="app">
+      <section class="page is-active" data-page="home">
+        <h1 class="page-title">Home</h1>
+      </section>
+      <section class="page" data-page="search">
+        <h1 class="page-title">Search</h1>
+      </section>
+      <section class="page" data-page="library">
+        <h1 class="page-title">Library</h1>
+      </section>
+      <section class="page" data-page="profile">
+        <h1 class="page-title">Profile</h1>
+      </section>
     </main>
+
+    <nav class="bottom-nav" role="tablist" aria-label="Primary">
+      <button class="tab-btn is-active" type="button" role="tab" data-tab="home" aria-label="Home">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>
+        </svg>
+        <span>Home</span>
+      </button>
+      <button class="tab-btn" type="button" role="tab" data-tab="search" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="m20 20-3.5-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Search</span>
+      </button>
+      <button class="tab-btn" type="button" role="tab" data-tab="library" aria-label="Library">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M6 4h12a1 1 0 0 1 1 1v15l-7-3-7 3V5a1 1 0 0 1 1-1z"/>
+        </svg>
+        <span>Library</span>
+      </button>
+      <button class="tab-btn" type="button" role="tab" data-tab="profile" aria-label="Profile">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M4 21a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Profile</span>
+      </button>
+    </nav>
 
     <button
       id="install-btn"

@@ -1,0 +1,13 @@
+# Claude Code local config (per-machine permission cache, not project code)
+.claude/
+
+# OS junk
+Thumbs.db
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Node (if ever added)
+node_modules/
