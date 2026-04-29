@@ -110,11 +110,10 @@
     });
   }
 
-  console.info('[PWA] platform =', detectPlatform(), '| standalone =', isStandalone());
+  const platform = detectPlatform();
+  console.info('[PWA] platform =', platform, '| standalone =', isStandalone());
 
-  if (isStandalone()) {
-    hideButton();
-  } else {
+  if (!isStandalone() && platform === 'ios') {
     showButton();
   }
 
@@ -134,11 +133,12 @@
         const choice = await deferredPrompt.userChoice;
         console.info('[PWA] install choice:', choice.outcome);
         deferredPrompt = null;
-        if (choice.outcome !== 'accepted') showButton();
+        hideButton();
         return;
       } catch (err) {
         console.error('[PWA] native prompt failed, falling back to modal:', err);
         deferredPrompt = null;
+        hideButton();
       }
     }
 
