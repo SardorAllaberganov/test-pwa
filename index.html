@@ -78,20 +78,11 @@
       <span>Install app</span>
     </button>
 
-    <div id="ios-modal" class="modal" hidden>
+    <div id="install-modal" class="modal" hidden>
       <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <h2 id="modal-title">Install on iPhone / iPad</h2>
-        <ol>
-          <li>
-            Tap the <strong>Share</strong> button
-            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" class="inline-icon">
-              <path fill="currentColor" d="M12 3a1 1 0 0 1 .7.29l3.5 3.5a1 1 0 1 1-1.4 1.42L13 6.41V15a1 1 0 1 1-2 0V6.41L9.21 8.21a1 1 0 1 1-1.42-1.42l3.5-3.5A1 1 0 0 1 12 3Zm-7 9a1 1 0 0 1 1 1v6h12v-6a1 1 0 1 1 2 0v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6a1 1 0 0 1 1-1Z"/>
-            </svg>
-            in the Safari toolbar.
-          </li>
-          <li>Scroll and tap <strong>Add to Home Screen</strong>.</li>
-          <li>Tap <strong>Add</strong> in the top-right corner.</li>
-        </ol>
+        <h2 id="modal-title">Install</h2>
+        <p id="modal-intro" class="modal-intro"></p>
+        <ol id="modal-steps"></ol>
         <button id="modal-close" type="button" class="btn-secondary">Got it</button>
       </div>
     </div>

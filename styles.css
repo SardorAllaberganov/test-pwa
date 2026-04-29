@@ -183,8 +183,15 @@ body {
 }
 
 .modal-card h2 {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   font-size: 1.2rem;
+}
+
+.modal-intro {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
 }
 
 .modal-card ol {
