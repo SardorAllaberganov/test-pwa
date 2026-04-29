@@ -75,8 +75,8 @@ body {
 
 .bottom-nav {
   flex-shrink: 0;
-  height: calc(var(--nav-h) + env(safe-area-inset-bottom));
-  padding-bottom: env(safe-area-inset-bottom);
+  height: calc(var(--nav-h) + min(env(safe-area-inset-bottom), 14px));
+  padding-bottom: min(env(safe-area-inset-bottom), 14px);
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
