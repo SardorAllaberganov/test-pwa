@@ -49,7 +49,7 @@
 
   if (isStandalone()) {
     hideButton();
-  } else if (isIos()) {
+  } else {
     showButton();
   }
 

@@ -32,26 +32,23 @@ body {
 }
 
 #app {
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom));
   display: block;
 }
 
 .page {
   display: none;
-  min-height: calc(100vh - var(--nav-h));
-  min-height: calc(100dvh - var(--nav-h));
+}
+
+.page.is-active {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 24px;
+  min-height: calc(100vh - var(--nav-h) - env(safe-area-inset-bottom));
+  min-height: calc(100dvh - var(--nav-h) - env(safe-area-inset-bottom));
   animation: fade-in 220ms ease-out;
-}
-
-.page.is-active {
-  display: flex;
 }
 
 .page-title {
